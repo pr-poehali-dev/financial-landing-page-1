@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Icon from "@/components/ui/icon";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Index = () => {
   return (
@@ -26,11 +27,11 @@ const Index = () => {
             </p>
             
             <div className="flex gap-4 justify-center flex-wrap">
-              <Button size="lg" className="bg-gradient-premium text-white hover:opacity-90 px-8 py-6 text-lg animate-glow">
+              <Button size="lg" className="bg-gradient-premium text-white hover:opacity-90 hover:scale-110 hover:shadow-2xl hover:shadow-primary/50 px-8 py-6 text-lg animate-glow transition-all duration-500">
                 <Icon name="TrendingUp" size={20} className="mr-2" />
                 Выбрать продукт
               </Button>
-              <Button size="lg" variant="outline" className="border-primary/50 hover:bg-primary/10 px-8 py-6 text-lg">
+              <Button size="lg" variant="outline" className="border-primary/50 hover:bg-primary/10 hover:scale-110 hover:shadow-xl transition-all duration-500 px-8 py-6 text-lg">
                 <Icon name="Calculator" size={20} className="mr-2" />
                 Рассчитать выгоду
               </Button>
@@ -39,7 +40,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="debit-cards" className="px-4 py-16 bg-card/50">
+      <AnimatedSection id="debit-cards" className="px-4 py-16 bg-card/50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
@@ -55,7 +56,7 @@ const Index = () => {
               { name: "Золотая", cashback: "до 7%", bonus: "30 000 ₽", features: ["Без комиссий", "Кэшбэк категории", "Страхование"] },
               { name: "Стандарт", cashback: "до 5%", bonus: "10 000 ₽", features: ["0₽ за выпуск", "Базовый кэшбэк", "Быстрое оформление"] },
             ].map((card, idx) => (
-              <Card key={idx} className="hover:scale-105 transition-transform duration-300 bg-gradient-to-br from-card to-muted border-primary/20">
+              <Card key={idx} className="hover:scale-110 hover:shadow-2xl hover:shadow-primary/50 hover:-translate-y-2 transition-all duration-500 bg-gradient-to-br from-card to-muted border-primary/20 cursor-pointer group">
                 <CardHeader>
                   <CardTitle className="text-2xl">{card.name}</CardTitle>
                   <CardDescription>
@@ -75,7 +76,7 @@ const Index = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button className="w-full bg-gradient-premium text-white">
+                  <Button className="w-full bg-gradient-premium text-white hover:scale-105 hover:shadow-lg transition-all duration-300 group-hover:animate-pulse">
                     Оформить карту
                   </Button>
                 </CardContent>
@@ -83,9 +84,9 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
-      <section id="credit-cards" className="px-4 py-16">
+      <AnimatedSection id="credit-cards" className="px-4 py-16">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
@@ -120,7 +121,7 @@ const Index = () => {
                       <span className="font-semibold text-secondary">{card.rate}</span>
                     </div>
                   </div>
-                  <Button className="w-full bg-secondary text-white hover:bg-secondary/90">
+                  <Button className="w-full bg-secondary text-white hover:bg-secondary/90 hover:scale-105 hover:shadow-lg transition-all duration-300 group-hover:animate-pulse">
                     Получить карту
                   </Button>
                 </CardContent>
@@ -128,9 +129,9 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
-      <section id="investments" className="px-4 py-16 bg-card/50">
+      <AnimatedSection id="investments" className="px-4 py-16 bg-card/50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
@@ -157,7 +158,7 @@ const Index = () => {
                 features: ["Не платите НДФЛ", "Для долгосрочных", "Вычет при закрытии"]
               },
             ].map((account, idx) => (
-              <Card key={idx} className="hover:scale-105 transition-transform duration-300 bg-gradient-to-br from-card to-muted border-accent/20">
+              <Card key={idx} className="hover:scale-110 hover:shadow-2xl hover:shadow-accent/50 hover:-translate-y-2 transition-all duration-500 bg-gradient-to-br from-card to-muted border-accent/20 cursor-pointer group">
                 <CardHeader>
                   <CardTitle className="text-2xl">{account.type}</CardTitle>
                   <CardDescription>
@@ -175,7 +176,7 @@ const Index = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+                  <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90 hover:scale-105 hover:shadow-lg transition-all duration-300 group-hover:animate-pulse">
                     Открыть счёт
                   </Button>
                 </CardContent>
@@ -183,9 +184,9 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
-      <section id="business" className="px-4 py-16">
+      <AnimatedSection id="business" className="px-4 py-16">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
@@ -201,9 +202,9 @@ const Index = () => {
               { title: "Эквайринг", benefit: "0.8%", period: "комиссия", icon: "CreditCard" },
               { title: "Бизнес-кредит", benefit: "от 8%", period: "ставка", icon: "PiggyBank" },
             ].map((service, idx) => (
-              <Card key={idx} className="hover:scale-105 transition-transform duration-300 text-center bg-gradient-to-br from-card to-muted">
+              <Card key={idx} className="hover:scale-110 hover:shadow-2xl hover:shadow-primary/50 hover:-translate-y-2 transition-all duration-500 text-center bg-gradient-to-br from-card to-muted cursor-pointer group">
                 <CardHeader>
-                  <div className="mx-auto w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4">
+                  <div className="mx-auto w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-4 group-hover:bg-primary/40 group-hover:scale-110 transition-all duration-500">
                     <Icon name={service.icon as any} size={32} className="text-primary" />
                   </div>
                   <CardTitle className="text-xl">{service.title}</CardTitle>
@@ -213,7 +214,7 @@ const Index = () => {
                     <span className="text-4xl font-bold text-primary">{service.benefit}</span>
                     <p className="text-sm text-muted-foreground mt-1">{service.period}</p>
                   </div>
-                  <Button className="w-full" variant="outline">
+                  <Button className="w-full hover:scale-105 hover:bg-primary hover:text-white transition-all duration-300" variant="outline">
                     Подробнее
                   </Button>
                 </CardContent>
@@ -221,9 +222,9 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
-      <section id="mfo" className="px-4 py-16 bg-card/50">
+      <AnimatedSection id="mfo" className="px-4 py-16 bg-card/50">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
@@ -240,7 +241,7 @@ const Index = () => {
               { name: "Вебзайм", amount: "до 40 000 ₽", time: "5 мин", days: "0% 21 день" },
               { name: "Лайм", amount: "до 35 000 ₽", time: "7 мин", days: "0% 30 дней" },
             ].map((mfo, idx) => (
-              <Card key={idx} className="hover:scale-105 transition-transform duration-300 bg-gradient-to-br from-card to-muted border-secondary/20">
+              <Card key={idx} className="hover:scale-110 hover:shadow-2xl hover:shadow-secondary/50 hover:-translate-y-2 transition-all duration-500 bg-gradient-to-br from-card to-muted border-secondary/20 cursor-pointer group">
                 <CardHeader>
                   <CardTitle className="text-xl text-center">{mfo.name}</CardTitle>
                 </CardHeader>
@@ -250,7 +251,7 @@ const Index = () => {
                   </div>
                   <p className="text-2xl font-bold text-secondary mb-2">{mfo.amount}</p>
                   <p className="text-sm text-muted-foreground mb-4">Решение за {mfo.time}</p>
-                  <Button className="w-full bg-secondary text-white hover:bg-secondary/90">
+                  <Button className="w-full bg-secondary text-white hover:bg-secondary/90 hover:scale-105 hover:shadow-lg transition-all duration-300 group-hover:animate-pulse">
                     Получить
                   </Button>
                 </CardContent>
@@ -258,9 +259,9 @@ const Index = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
-      <section id="comparison" className="px-4 py-16">
+      <AnimatedSection id="comparison" className="px-4 py-16">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
@@ -282,7 +283,7 @@ const Index = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-b border-border hover:bg-muted/50 transition-colors">
+                <tr className="border-b border-border hover:bg-muted/50 hover:scale-[1.02] transition-all duration-300 cursor-pointer">
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-2">
                       <Icon name="CreditCard" size={20} className="text-primary" />
@@ -293,10 +294,10 @@ const Index = () => {
                   <td className="px-6 py-4 text-primary font-bold">50 000 ₽</td>
                   <td className="px-6 py-4">Бессрочно</td>
                   <td className="px-6 py-4 text-center">
-                    <Button size="sm" className="bg-primary text-white">Оформить</Button>
+                    <Button size="sm" className="bg-primary text-white hover:scale-110 hover:shadow-lg transition-all duration-300">Оформить</Button>
                   </td>
                 </tr>
-                <tr className="border-b border-border hover:bg-muted/50 transition-colors">
+                <tr className="border-b border-border hover:bg-muted/50 hover:scale-[1.02] transition-all duration-300 cursor-pointer">
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-2">
                       <Icon name="Wallet" size={20} className="text-secondary" />
@@ -307,10 +308,10 @@ const Index = () => {
                   <td className="px-6 py-4 text-secondary font-bold">от 9.9%</td>
                   <td className="px-6 py-4">120 дней</td>
                   <td className="px-6 py-4 text-center">
-                    <Button size="sm" className="bg-secondary text-white">Оформить</Button>
+                    <Button size="sm" className="bg-secondary text-white hover:scale-110 hover:shadow-lg transition-all duration-300">Оформить</Button>
                   </td>
                 </tr>
-                <tr className="border-b border-border hover:bg-muted/50 transition-colors">
+                <tr className="border-b border-border hover:bg-muted/50 hover:scale-[1.02] transition-all duration-300 cursor-pointer">
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-2">
                       <Icon name="TrendingUp" size={20} className="text-accent" />
@@ -321,10 +322,10 @@ const Index = () => {
                   <td className="px-6 py-4 text-accent font-bold">52 000 ₽/год</td>
                   <td className="px-6 py-4">От 3 лет</td>
                   <td className="px-6 py-4 text-center">
-                    <Button size="sm" className="bg-accent text-accent-foreground">Открыть</Button>
+                    <Button size="sm" className="bg-accent text-accent-foreground hover:scale-110 hover:shadow-lg transition-all duration-300">Открыть</Button>
                   </td>
                 </tr>
-                <tr className="border-b border-border hover:bg-muted/50 transition-colors">
+                <tr className="border-b border-border hover:bg-muted/50 hover:scale-[1.02] transition-all duration-300 cursor-pointer">
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-2">
                       <Icon name="Building2" size={20} className="text-primary" />
@@ -335,10 +336,10 @@ const Index = () => {
                   <td className="px-6 py-4 text-primary font-bold">0 ₽</td>
                   <td className="px-6 py-4">6 месяцев</td>
                   <td className="px-6 py-4 text-center">
-                    <Button size="sm" className="bg-primary text-white">Открыть</Button>
+                    <Button size="sm" className="bg-primary text-white hover:scale-110 hover:shadow-lg transition-all duration-300">Открыть</Button>
                   </td>
                 </tr>
-                <tr className="hover:bg-muted/50 transition-colors">
+                <tr className="hover:bg-muted/50 hover:scale-[1.02] transition-all duration-300 cursor-pointer">
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-2">
                       <Icon name="Zap" size={20} className="text-secondary" />
@@ -349,14 +350,14 @@ const Index = () => {
                   <td className="px-6 py-4 text-secondary font-bold">30 000 ₽</td>
                   <td className="px-6 py-4">30 дней</td>
                   <td className="px-6 py-4 text-center">
-                    <Button size="sm" className="bg-secondary text-white">Получить</Button>
+                    <Button size="sm" className="bg-secondary text-white hover:scale-110 hover:shadow-lg transition-all duration-300">Получить</Button>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       <footer className="px-4 py-8 border-t border-border">
         <div className="container mx-auto max-w-6xl text-center text-sm text-muted-foreground">
@@ -365,6 +366,22 @@ const Index = () => {
         </div>
       </footer>
     </div>
+  );
+};
+
+const AnimatedSection = ({ children, id, className }: { children: React.ReactNode; id?: string; className?: string }) => {
+  const { ref, isVisible } = useScrollAnimation(0.1);
+  
+  return (
+    <section 
+      id={id} 
+      ref={ref} 
+      className={`${className} transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+    >
+      {children}
+    </section>
   );
 };
 
